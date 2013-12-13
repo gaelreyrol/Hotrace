@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hotrace.h                                          :+:      :+:    :+:   */
+/*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/13 19:53:53 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/13 22:21:43 by greyrol          ###   ########.fr       */
+/*   Created: 2013/12/13 20:45:34 by greyrol           #+#    #+#             */
+/*   Updated: 2013/12/13 22:51:39 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOTRACE_H
-# define HOTRACE_H
+#include "hotrace.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((int) *s1 - *s2);
+}
 
-# include "tree.h"
+void	ft_putstr(char *str)
+{
+	while (*str != '\0')
+		write(1, str++, 1);
+}
 
-int		ft_strcmp(const char *s1, const char *s2);
-void	ft_putstr(char *str);
-void	ft_putendl(char *str);
-
-#endif /* !HOTRACE_H */
+void	ft_putendl(char *str)
+{
+	ft_putstr(str);
+	ft_putstr("\n");
+}
 

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hotrace.h                                          :+:      :+:    :+:   */
+/*   tree.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/13 19:53:53 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/13 22:21:43 by greyrol          ###   ########.fr       */
+/*   Created: 2013/12/13 20:20:24 by greyrol           #+#    #+#             */
+/*   Updated: 2013/12/13 22:43:14 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOTRACE_H
-# define HOTRACE_H
+#ifndef TREE_H
+# define TREE_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+# include "hotrace.h"
 
-# include "tree.h"
+typedef struct	s_node
+{
+	char			*keyword;
+	char			*value;
+	struct s_node	*right;
+	struct s_node	*left;
+}				t_node;
 
-int		ft_strcmp(const char *s1, const char *s2);
-void	ft_putstr(char *str);
-void	ft_putendl(char *str);
+void	addNode(t_node **tree, char *keyword, char *value);
+char	*searchValueByKeyword(t_node *tree, char *keyword);
+void	printNode(t_node *tree);
+void	clearNode(t_node **tree);
 
-#endif /* !HOTRACE_H */
-
+#endif /* !TREE_H */

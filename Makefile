@@ -6,18 +6,18 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:34:01 by greyrol           #+#    #+#              #
-#    Updated: 2013/12/13 20:16:49 by greyrol          ###   ########.fr        #
+#    Updated: 2013/12/13 22:51:01 by greyrol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= clang
 NAME	= hotrace
 
-SRC 	= hotrace.c
+SRC 	= hotrace.c tree.c functions.c
 OBJ		= $(SRC:.c=.o)
 
 CFLAGS	= -Wall -Werror -Wextra -pedantic
-OFLAGS	= -O3 -ggdb
+OFLAGS	=  -ggdb
 
 RM		= rm -rf
 
