@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:19:55 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 12:14:07 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/14 13:46:11 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,18 @@ t_node	*addNode(t_node *tree, char *keyword, char *value)
 	return (balanceNode(tree));
 }
 
-t_node	*searchValue(t_node *tree, char *keyword)
+char	*searchValue(t_node *tree, char *keyword)
 {
-	if (tree == NULL || tree->keyword == keyword)
-		return (tree);
-	if (ft_strcmp(tree->keyword, keyword) > 0)
-		return (searchValue(tree->left, keyword));
-	return (searchValue(tree->right, keyword));
+	if (tree)
+	{
+		if (tree->keyword == keyword)
+			return (tree->value);
+		if (ft_strcmp(tree->keyword, keyword) > 0)
+			tree = tree->left;
+		else
+			tree = tree->left;
+	}
+	return ("Not found");
 }
 
 void	printNode(t_node *tree)
@@ -60,7 +65,6 @@ void	printNode(t_node *tree)
 		if (tree->right)
 			printNode(tree->right);
 	}
-	ft_putendl("Arbre vide");
 }
 
 void	clearNode(t_node **tree)

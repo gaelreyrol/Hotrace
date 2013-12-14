@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:45:34 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/13 22:51:39 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/14 13:48:16 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	ft_putstr(char *str)
 
 void	ft_putendl(char *str)
 {
-	ft_putstr(str);
+	if (str)
+		ft_putstr(str);
 	ft_putstr("\n");
 }
 
