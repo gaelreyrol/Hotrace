@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hotrace.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/13 19:53:43 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 14:02:42 by greyrol          ###   ########.fr       */
+/*   Created: 2013/11/19 15:52:42 by greyrol           #+#    #+#             */
+/*   Updated: 2013/12/14 14:57:34 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hotrace.h"
+#include "get_next_line.h"
 
-int	main(void)
+size_t		ft_strlen(const char *str)
 {
-	t_node	*datas;
+	size_t	i;
 
-	datas = NULL;
-	read_stdentry(datas);	
-	clearNode(&datas);
-	return (0);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
-
-

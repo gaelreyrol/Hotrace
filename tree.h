@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:20:24 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 12:31:38 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/14 14:49:15 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct	s_node
 	struct s_node	*right;
 	struct s_node	*left;
 }				t_node;
+
+int		read_stdentry(t_node *tree);
 
 t_node	*initNode(char *keyword, char *value, t_node *left, t_node *right);
 t_node	*addNode(t_node *tree, char *keyword, char *value);

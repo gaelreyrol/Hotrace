@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hotrace.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/13 19:53:43 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 14:02:42 by greyrol          ###   ########.fr       */
+/*   Created: 2013/11/19 15:47:11 by greyrol           #+#    #+#             */
+/*   Updated: 2013/12/14 14:54:16 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hotrace.h"
+#include "get_next_line.h"
 
-int	main(void)
+char	*ft_strdup(const char *str)
 {
-	t_node	*datas;
+	char	*result;
+	size_t	size;
 
-	datas = NULL;
-	read_stdentry(datas);	
-	clearNode(&datas);
-	return (0);
+	size = ft_strlen(str) + 1;
+	result = (char *) malloc(sizeof(char) * size);
+	if (!result)
+		result = NULL;
+	else
+		ft_strcpy(result, str);
+	return (result);
 }
-
-

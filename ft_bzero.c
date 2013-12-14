@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hotrace.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/13 19:53:43 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 14:02:42 by greyrol          ###   ########.fr       */
+/*   Created: 2013/11/19 18:59:21 by greyrol           #+#    #+#             */
+/*   Updated: 2013/12/14 15:01:27 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hotrace.h"
+#include "get_next_line.h"
 
-int	main(void)
+void	ft_bzero(void *string, size_t n)
 {
-	t_node	*datas;
-
-	datas = NULL;
-	read_stdentry(datas);	
-	clearNode(&datas);
-	return (0);
+	string = ft_memset(string, 0, n);
 }
-
-

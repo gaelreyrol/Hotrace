@@ -6,11 +6,11 @@
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 15:53:02 by greyrol           #+#    #+#             */
-/*   Updated: 2013/11/19 15:53:04 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/14 14:53:59 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "get_next_line.h"
 
 char		*ft_strcpy(char *dest, const char *str)
 {

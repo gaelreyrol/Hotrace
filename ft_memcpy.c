@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/21 18:05:53 by greyrol           #+#    #+#             */
-/*   Updated: 2013/11/21 18:05:54 by greyrol          ###   ########.fr       */
+/*   Created: 2013/11/19 18:42:40 by greyrol           #+#    #+#             */
+/*   Updated: 2013/12/14 14:57:48 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "get_next_line.h"
 
-void	*ft_memalloc(size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	void	*ptr;
+	unsigned char		*p_dest;
+	unsigned char	*p_src;
+	size_t			i;
 
-	ptr = NULL;
-	ptr = (void *) malloc(size);
-	if (ptr)
-		ft_bzero(ptr, size);
-	return (ptr);
+	p_dest = (unsigned char *) dest;
+	p_src = (unsigned char *) src;
+	i = 0;
+	while (i < n)
+	{
+		p_dest[i] = p_src[i];
+		i++;
+	}
+	return (dest);
 }
