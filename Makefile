@@ -15,7 +15,7 @@ NAME	= hotrace
 
 SRC 	= hotrace.c tree.c treeTools.c functions.c read_stdentry.c \
 		  get_next_line.c ft_memalloc.c ft_strdup.c ft_strcpy.c ft_bzero.c \
-		  ft_memset.c ft_strlen.c ft_memcpy.c
+		  ft_memset.c ft_strlen.c ft_memcpy.c ft_memcmp.c
 		  
 OBJ		= $(SRC:.c=.o)
 

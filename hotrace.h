@@ -16,11 +16,14 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+#include <stdio.h>
+#include <time.h>
 
 # include "tree.h"
 # include "get_next_line.h"
 
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	ft_putstr(char *str);
 void	ft_putendl(char *str);
 
