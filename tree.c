@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:19:55 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 13:46:11 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/14 18:04:24 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,32 @@ t_node	*addNode(t_node *tree, char *keyword, char *value)
 
 char	*searchValue(t_node *tree, char *keyword)
 {
-	if (tree)
+	while (tree && tree->keyword != keyword)
 	{
-		if (tree->keyword == keyword)
-			return (tree->value);
 		if (ft_strcmp(tree->keyword, keyword) > 0)
+		{
+			ft_putstr("go to left\n");
 			tree = tree->left;
+		}
+		else if (ft_strcmp(tree->keyword, keyword) < 0)
+		{
+			ft_putstr("go to right\n");
+			tree = tree->right;
+		}
 		else
-			tree = tree->left;
+			return ("Not Found");
 	}
-	return ("Not found");
+	return (tree->value);
 }
+
+/*char	*searchValue(t_node *tree, char *keyword)
+{
+	if (tree == NULL || keyword == tree->keyword)
+		return (tree->value);
+	if (ft_strcmp(tree->keyword, keyword) > 0)
+		return (searchValue(tree->left, keyword));
+	return (searchValue(tree->right, keyword));
+}*/
 
 void	printNode(t_node *tree)
 {
