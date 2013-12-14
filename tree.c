@@ -6,56 +6,45 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:19:55 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/13 23:25:20 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/14 12:14:07 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tree.h"
 
-void	addNode(t_node **tree, char *keyword, char *value)
+t_node	*initNode(char *keyword, char *value, t_node *left, t_node *right)
 {
-	t_node	*tmpNode;
-	t_node	*tmpTree;
-	t_node	*element;
+	t_node *element;
 
-	tmpTree = *tree;
 	element = (t_node *) malloc(sizeof(t_node));
 	element->keyword = keyword;
 	element->value = value;
-	element->right = NULL;
-	element->left = NULL;
-	while (tmpTree)
-	{
-		tmpNode = tmpTree;
-		if (ft_strcmp(tmpTree->keyword, keyword) > 0)
-		{
-			tmpTree = tmpTree->right;
-			if (!tmpTree)
-				tmpNode->right = element;
-		}
-		else
-		{
-			tmpTree = tmpTree->left;
-			if (!tmpTree)
-				tmpNode->left = element;
-		}
-	}
-	if (!tmpTree)
-		*tree = element;
+	element->left = left;
+	element->right = right;
+	setNHeight(element);
+	return (element);
 }
 
-char	*searchValueByKeyword(t_node *tree, char *keyword)
+t_node	*addNode(t_node *tree, char *keyword, char *value)
 {
-	if (tree)
-	{
-		if (tree->keyword == keyword)
-			return (tree->value);
-		if (ft_strcmp(tree->keyword, keyword) > 0)
-			searchValueByKeyword(tree->right, keyword);
-		else
-			searchValueByKeyword(tree->left, keyword);
-	}
-	return (NULL);
+	if (tree == NULL)
+		return (initNode(keyword, value, NULL, NULL));
+	if (ft_strcmp(tree->keyword, keyword) > 0)
+		tree->left = addNode(tree->left, keyword, value);
+	else if (ft_strcmp(tree->keyword, keyword) < 0)
+		tree->right = addNode(tree->right, keyword, value);
+	else
+		tree->value = value;
+	return (balanceNode(tree));
+}
+
+t_node	*searchValue(t_node *tree, char *keyword)
+{
+	if (tree == NULL || tree->keyword == keyword)
+		return (tree);
+	if (ft_strcmp(tree->keyword, keyword) > 0)
+		return (searchValue(tree->left, keyword));
+	return (searchValue(tree->right, keyword));
 }
 
 void	printNode(t_node *tree)
@@ -71,6 +60,7 @@ void	printNode(t_node *tree)
 		if (tree->right)
 			printNode(tree->right);
 	}
+	ft_putendl("Arbre vide");
 }
 
 void	clearNode(t_node **tree)

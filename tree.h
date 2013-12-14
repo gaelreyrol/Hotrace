@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:20:24 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/13 22:43:14 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/14 12:10:18 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,21 @@ typedef struct	s_node
 {
 	char			*keyword;
 	char			*value;
+	int				height;
 	struct s_node	*right;
 	struct s_node	*left;
 }				t_node;
 
-void	addNode(t_node **tree, char *keyword, char *value);
-char	*searchValueByKeyword(t_node *tree, char *keyword);
+t_node	*initNode(char *keyword, char *value, t_node *left, t_node *right);
+t_node	*addNode(t_node *tree, char *keyword, char *value);
+t_node	*searchValue(t_node *tree, char *keyword);
 void	printNode(t_node *tree);
 void	clearNode(t_node **tree);
+
+int		getNHeight(t_node *tree);
+void	setNHeight(t_node *tree);
+t_node	*rotateNLeft(t_node *tree);
+t_node	*rotateNRight(t_node *tree);
+t_node	*balanceNode(t_node *tree);
 
 #endif /* !TREE_H */

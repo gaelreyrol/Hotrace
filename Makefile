@@ -6,25 +6,26 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:34:01 by greyrol           #+#    #+#              #
-#    Updated: 2013/12/13 22:51:01 by greyrol          ###   ########.fr        #
+#    Updated: 2013/12/14 10:32:32 by greyrol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= clang
 NAME	= hotrace
 
-SRC 	= hotrace.c tree.c functions.c
+SRC 	= hotrace.c tree.c treeTools.c functions.c
 OBJ		= $(SRC:.c=.o)
 
 CFLAGS	= -Wall -Werror -Wextra -pedantic
-OFLAGS	=  -ggdb
+OFLAGS	= -O3
+DFLAGS  = -ggdb
 
 RM		= rm -rf
 
 all:		$(NAME)
 
 $(NAME):	$(OBJ) $(HEADER)
-			@$(CC)  $(CFLAGS) $(OFLAGS) -o $(NAME) $(OBJ)
+			@$(CC)  $(CFLAGS) $(OFLAGS) $(DFLAGS) -o $(NAME) $(OBJ)
 			@printf 'Building binary file : %s\n' "$(NAME)"
 clean:
 			@$(RM) $(OBJ)
