@@ -40,13 +40,16 @@ t_node	*addNode(t_node *tree, char *keyword, char *value)
 
 char	*searchValue(t_node *tree, char *keyword)
 {
-	if (tree == NULL);
-		return ("Not found.");
-	if (ft_memcmp(keyword,tree->keyword, sizeof(keyword)) == 0)
-		return (tree->value);
-	if (ft_memcmp(tree->keyword, keyword, sizeof(keyword)) > 0)
-		return (searchValue(tree->left, keyword));
-	return (searchValue(tree->right, keyword));
+	while (tree)
+	{
+		if (ft_memcmp(tree->keyword, keyword, sizeof(keyword)) > 0)
+			tree = tree->left;
+		else if (ft_memcmp(tree->keyword, keyword, sizeof(keyword)) < 0)
+			tree = tree->right;
+		else if (ft_memcmp(tree->keyword, keyword, sizeof(keyword)) == 0)
+			return (tree->value);
+	}
+	return ("Not found.");
 }
 
 void	printNode(t_node *tree)
