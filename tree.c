@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:19:55 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 18:58:26 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/15 14:40:25 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,7 @@ char	*searchValue(t_node *tree, char *keyword)
 		else if (ft_memcmp(tree->keyword, keyword, sizeof(keyword)) == 0)
 			return (tree->value);
 	}
-	return ("Not found.");
-}
-
-void	printNode(t_node *tree)
-{
-	if (tree)
-	{
-		if (tree->left)
-			printNode(tree->left);
-		ft_putstr("Keyword : ");
-		ft_putendl(tree->keyword);
-		ft_putstr("Value : ");
-		ft_putendl(tree->value);
-		if (tree->right)
-			printNode(tree->right);
-	}
+	return (NULL);
 }
 
 void	clearNode(t_node **tree)

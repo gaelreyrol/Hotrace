@@ -6,7 +6,7 @@
 /*   By: birousse <birousse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 21:33:02 by birousse          #+#    #+#             */
-/*   Updated: 2013/12/14 19:15:38 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/15 14:50:31 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		retrieveKeyword(t_node **tree)
 {
 	char	*line;
 	char	*keyword;
+	char	*value;
 	int		i;
 
 	i = 0;
@@ -25,10 +26,13 @@ int		retrieveKeyword(t_node **tree)
 		if (line && (ft_strcmp(line, "")))
 		{
 			keyword = ft_strdup(line);
-			/*ft_putstr(keyword);
-			ft_putstr(": ");
-			ft_putendl(searchValue(*tree, keyword));*/
-			searchValue(*tree, keyword);
+			if ((value = searchValue(*tree, keyword)) != NULL)
+				ft_putendl(value, ft_strlen(value));
+			else
+			{
+				ft_putstr(keyword, ft_strlen(keyword));
+				ft_putendl(": Not found.", 12);
+			}
 			i++;
 		}
 	}

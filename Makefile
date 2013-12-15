@@ -6,11 +6,11 @@
 #    By: greyrol <greyrol@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 10:34:01 by greyrol           #+#    #+#              #
-#    Updated: 2013/12/14 15:01:10 by greyrol          ###   ########.fr        #
+#    Updated: 2013/12/15 14:29:09 by greyrol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= clang
+CC		= cc
 NAME	= hotrace
 
 SRC 	= hotrace.c tree.c treeTools.c functions.c read_stdentry.c \

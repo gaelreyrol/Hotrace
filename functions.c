@@ -6,7 +6,7 @@
 /*   By: greyrol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/13 20:45:34 by greyrol           #+#    #+#             */
-/*   Updated: 2013/12/14 13:48:16 by greyrol          ###   ########.fr       */
+/*   Updated: 2013/12/15 14:40:59 by greyrol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((int) *s1 - *s2);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(char *str, int len)
 {
-	while (*str != '\0')
-		write(1, str++, 1);
+	if (str && len)
+		write(1, str, len);
 }
 
-void	ft_putendl(char *str)
+void	ft_putendl(char *str, int len)
 {
-	if (str)
-		ft_putstr(str);
-	ft_putstr("\n");
+	if (str && len)
+		ft_putstr(str, len);
+	ft_putstr("\n", 1);
 }
 
